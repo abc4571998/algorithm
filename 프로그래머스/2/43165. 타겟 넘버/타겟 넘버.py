@@ -15,8 +15,7 @@ def bfs(numbers, target):
         	queue.append(num + int(numbers[i]))
         	queue.append(num + int(numbers[i])*(-1))
             
-    target_count = [x for x in queue if x == target]
-    return len(target_count)
+    return queue.count(target)
         
 def solution(numbers, target):
     answer = bfs(numbers, target)
