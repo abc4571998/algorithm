@@ -8,10 +8,10 @@ def calc_exp(left, right, oper): #eval 함수 사용이 안되므로 직접 구�
     elif oper == '/':
         return left//right
     
-def eval_tree(nodes, answer, current):
+def eval_tree(nodes, current):
     if current[1] != None: #자식이 있는 연산자 노드는 왼쪽 자식과 오른쪽 자식을 연산해야 함
-        left_value = eval_tree(nodes, answer, nodes[current[1]-1])
-        right_value = eval_tree(nodes, answer, nodes[current[2]-1])
+        left_value = eval_tree(nodes, nodes[current[1]-1])
+        right_value = eval_tree(nodes, nodes[current[2]-1])
         return calc_exp(left_value, right_value, current[0])
     else: #자식 노드가 없다면 (리프노드라면) 값만 리턴
         return current[0]
@@ -28,4 +28,4 @@ for k in range(10):
             left, right = int(s[2]), int(s[3])
             nodes[i] = [s[1], left, right]
         
-    print(f"#{k+1} {eval_tree(nodes, 0, nodes[0])}")
+    print(f"#{k+1} {eval_tree(nodes, nodes[0])}")
