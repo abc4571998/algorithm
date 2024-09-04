@@ -36,8 +36,7 @@ for row in range(n):
 
 fire_time = bfs_fire(maps, fires)
 
-# 내 위치까지의 최소 시간을 계산
-answer = fire_time[my_place[0]][my_place[1]]
+answer = fire_time[my_place[0]][my_place[1]] # 내 위치까지의 최소 시간을 계산
 
 if answer == float('inf'):
 	print(-1)
