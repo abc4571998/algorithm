@@ -5,14 +5,11 @@ loads = list(map(int, input().split()))
 prices = list(map(int, input().split()))
 
 result = 0
+min_price = prices[0]
 
-for i in range(len(loads)):
-    load = loads[i]
-    min_price = prices[0]
-    for j in range(i+1):
-        price = prices[j]
-        if price < min_price:
-            min_price = price
-    result += min_price * load
+for i in range(n-1):
+    if prices[i] < min_price:
+        min_price = prices[i]
+    result += min_price * loads[i]
 
 print(result)
